@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="assets/img/ChatGPT Image Nov 5, 2025, 02_36_17 PM.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="./js/sessao.js"></script>
+    <title>Frequency Culture</title>
+</head>
+
+<body>
+   <nav class="menu-lateral">
+        <img src="../assets/img/ChatGPT Image Nov 2, 2025, 10_54_48 PM.png" alt="logo">
+        <ul>
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="box-lateral">
+                 <li><a href="QUIZ.html">Quiz</a></li>
+            </div>
+
+            <div class="box-lateral">
+                <li class="agora"><a href="Cruzadinha.html">Cruzadinha</a></li>
+            </div>
+
+            <div class="box-lateral">
+                <li><a href="Dashboard.html">Dashboard</a></li>
+            </div>
+
+            <div class="box-lateral-logout">
+                <li><a href="../login.html">Sair</a></li>
+            </div>
+           
+        </ul>
+    </nav>
+
+    <section class="sessao-quiz">
+
+        <div class="kpi">
+            <div class="campo">Acertos</div>
+            <div class="campo">Erros</div>
+            <div class="campo">Questão</div>
+            <div class="campo">Percentual</div>
+            <div class="campo">Tentativas</div>
+        </div>
+
+        <div>
+
+        </div>
+
+    </section>
+    
+    
+
+</body>
+
+</html>
+<script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+</script>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="assets/img/ChatGPT Image Nov 5, 2025, 02_36_17 PM.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="./js/sessao.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/44fdb15698.js" crossorigin="anonymous"></script>
+
+    <title>Frequency Culture</title>
+</head>
+
+<body onload="obterDados()">
+    <nav class="menu-lateral">
+        <!-- <img src="../assets/img/ChatGPT Image Nov 2, 2025, 10_54_48 PM.png" alt="logo"> -->
+        <h1>FREQUENCY CULTURE</h1>
+        <ul>
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="box-lateral">
+                <li><a href="QUIZ.html"><i class="fa-solid fa-dice"></i>JOGAR</a></li>
+            </div>
+
+            <!-- <div class="box-lateral">
+                <li><a href="Cruzadinha.html">Cruzadinha</a></li>
+            </div> -->
+
+            <div class="box-lateral">
+                <li class="agora"><a href="Dashboard.html"><i class="fa-solid fa-chart-simple"></i>RESULTADOS</a></li>
+            </div>
+
+            <div class="box-lateral-logout">
+                <li><a href="../login.html">Sair</a></li>
+            </div>
+
+        </ul>
+    </nav>
+    <div class="fundo">
+        <header class="header-container">
+
+            <h2>Dashboard</h2>
+
+            <section class="indicador-quiz">
+
+                <div class="indicador-kpi">
+                    <div class="campo">
+                        <h4>Questões certas</h4> <br>
+                        <div id="div_mensagem">***</div>
+                    </div>
+                    <div class="campo">
+                        <h4>Questões erradas</h4> <br>
+                        <div id="div_mensagem">***</div>
+                    </div>
+                    <div class="campo">
+                        <h4>Tentativas</h4> <br>
+                        <div id="div_mensagem">***</div>
+                    </div>
+                </div>
+
+            </section>
+        </header>
+        <main class="main-container">
+
+            <section class="graph-container">
+
+                <div class="graph-quiz">
+                    <canvas id="myChart"></canvas>
+                </div>
+
+            </section>
+
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+</body>
+
+
+</html>
+<script>
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    const idUsuario = sessionStorage.ID_USUARIO;
+
+    // Função chamada ao carregar a página para obter e processar os dados
+    function obterDados() {
+        // Aqui seria a função que obteria os dados do banco de dados
+        // No caso, aqui você colocaria o fetch que teria o endereço da sua rota que você criou na pasta /routes e chamaria a função plotarGraficoLinha nessa função. Exemplo:
+
+        fetch('/obterDados')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                plotarGraficoLinha(data);
+                plotarGraficoBarra(data);
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+
+
+        const endpoint = `/tentativa/buscar/`;
+
+        fetch(endpoint)
+            .then(res => res.json())
+            .then(res => {
+                valores[0] = res.acertos
+                valores[1] = res.erros
+                valores[2] = res.pontuacaoFinal
+                grafico1.update()
+            })
+            .cat(erro => {
+                console.log("ERRO: " + erro);
+
+            })
+
+        // Como eu não configurei as rotas, eu criei um array com os dados para simular a obtenção dos dados
+
+        // Chamando a função para plotar o gráfico de linha com os dados
+        plotarGraficoLinha();
+        // Chamando a função para plotar o gráfico de barra com os dados
+        plotarGraficoBarra()
+    }
+
+    function plotarGraficoLinha() {
+
+
+        // Preenchendo os arrays com os dados
+        // for (var i = 0; i < .length; i++) {
+        //     votos.push([i].votos);
+        //     jogadores.push([i].jogador);
+        // }
+        let nomeUsuario = sessionStorage.NOME_USUARIO
+
+        const ctx = document.getElementById('myChart');
+
+        let labelsX = ['Acertos', 'Erros', 'Pontuação'];
+        let valores = [3, 6, 9];
+
+        var grafico1 = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labelsX,
+                datasets: [{
+                    label: nomeUsuario,
+                    data: valores,
+                    borderWidth: 4,
+                    bordeColor: 'rgba(77, 166, 253, 0.85)',
+                    backgraoundColor: 'transparente',
+                    color: '#4a006c'
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    fontSize: 20,
+                    text: 'Relatório do Quiz'
+                },
+                labels: {
+                    fontStyle: 'bold'
+                },
+
+            }
+        });
+
+    }
+</script>
