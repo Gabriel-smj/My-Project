@@ -8,7 +8,7 @@ router.post("/registrarTentativa", function (req, res) {
 });
 
 
-router.get("/buscar/:idUsuario", function (req, res) {
+router.get("/buscarResultados/:idUsuario", function (req, res) {
     tentativaController.buscarResultados(req, res);
 });
 

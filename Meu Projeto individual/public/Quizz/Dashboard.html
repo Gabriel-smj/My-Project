@@ -12,14 +12,14 @@
         rel="stylesheet">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script src="./js/sessao.js"></script>
+    <script src="../js/sessao.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://kit.fontawesome.com/44fdb15698.js" crossorigin="anonymous"></script>
 
     <title>Frequency Culture</title>
 </head>
 
-<body onload="obterDados()">
+<body onload="validarSessao()">
     <nav class="menu-lateral">
         <!-- <img src="../assets/img/ChatGPT Image Nov 2, 2025, 10_54_48 PM.png" alt="logo"> -->
         <h1>FREQUENCY CULTURE</h1>
@@ -41,8 +41,8 @@
                 <li class="agora"><a href="Dashboard.html"><i class="fa-solid fa-chart-simple"></i>RESULTADOS</a></li>
             </div>
 
-            <div class="box-lateral-logout">
-                <li><a href="../login.html">Sair</a></li>
+            <div class="box-lateral-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
             </div>
 
         </ul>
@@ -94,89 +94,120 @@
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
+
+    // function obterDados(){
+    //   // Aqui seria a função que obteria os dados do banco de dados
+    //   // No caso, aqui você colocaria o fetch que teria o endereço da sua rota que você criou na pasta /routes e chamaria a função plotarGraficoLinha nessa função. Exemplo:
+
+    //   // fetch('/obterDados')
+    //   // .then(function(response){
+    //   //   return response.json();
+    //   // })
+    //   // .then(function(data){
+    //   //   plotarGraficoLinha(data);
+    //   //   plotarGraficoBarra(data);
+    //   // })
+    //   // .catch(function(err){
+    //   //   console.log(err);
+    //   // })
+
+    //   // Como eu não configurei as rotas, eu criei um array com os dados para simular a obtenção dos dados
+    //   var dados = [{
+    //     jogador:'Endrick',
+    //     votos: 10
+    //   },
+    //   {
+    //     jogador:'João',
+    //     votos: 5
+    //   },
+    //   {
+    //     jogador:'Maria',
+    //     votos: 15
+    //   },
+    //   {
+    //     jogador:'José',
+    //     votos: 20
+    //   },
+    //   {
+    //     jogador:'Pedro',
+    //     votos: 25
+    //   },
+    //   {
+    //     jogador:'Ana',
+    //     votos: 30
+    //   }]
+
+    //   // Chamando a função para plotar o gráfico de linha com os dados
+    //   plotarGraficoLinha(dados);
+    //   // Chamando a função para plotar o gráfico de barra com os dados
+    //   plotarGraficoBarra(dados)
+    // }
+
+
+
     const idUsuario = sessionStorage.ID_USUARIO;
+    let nomeUsuario = sessionStorage.NOME_USUARIO;
 
-    // Função chamada ao carregar a página para obter e processar os dados
-    function obterDados() {
-        // Aqui seria a função que obteria os dados do banco de dados
-        // No caso, aqui você colocaria o fetch que teria o endereço da sua rota que você criou na pasta /routes e chamaria a função plotarGraficoLinha nessa função. Exemplo:
+    
 
-        fetch('/obterDados')
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                plotarGraficoLinha(data);
-                plotarGraficoBarra(data);
-            })
-            .catch(function (err) {
-                console.log(err);
-            })
+    var valores = [];
+    var tentativa = res.idTentativa[0];
+    var Acertos = [];
+    var erros = [];
 
 
-        const endpoint = `/tentativa/buscar/`;
 
-        fetch(endpoint)
-            .then(res => res.json())
-            .then(res => {
-                valores[0] = res.acertos
-                valores[1] = res.erros
-                valores[2] = res.pontuacaoFinal
-                grafico1.update()
-            })
-            .cat(erro => {
-                console.log("ERRO: " + erro);
+    const ctx = document.getElementById('myChart');
 
-            })
+    let labelsX = ['Tentativa', 'Acertos', 'Erros'];
 
-        // Como eu não configurei as rotas, eu criei um array com os dados para simular a obtenção dos dados
-
-        // Chamando a função para plotar o gráfico de linha com os dados
-        plotarGraficoLinha();
-        // Chamando a função para plotar o gráfico de barra com os dados
-        plotarGraficoBarra()
-    }
-
-    function plotarGraficoLinha() {
+    console.log("valor do usuario: ", valores);
 
 
-        // Preenchendo os arrays com os dados
-        // for (var i = 0; i < .length; i++) {
-        //     votos.push([i].votos);
-        //     jogadores.push([i].jogador);
-        // }
-        let nomeUsuario = sessionStorage.NOME_USUARIO
-
-        const ctx = document.getElementById('myChart');
-
-        let labelsX = ['Acertos', 'Erros', 'Pontuação'];
-        let valores = [3, 6, 9];
-
-        var grafico1 = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: labelsX,
-                datasets: [{
-                    label: nomeUsuario,
-                    data: valores,
-                    borderWidth: 4,
-                    bordeColor: 'rgba(77, 166, 253, 0.85)',
-                    backgraoundColor: 'transparente',
-                    color: '#4a006c'
-                }]
+    var grafico1 = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labelsX,
+            datasets: [{
+                label: nomeUsuario,
+                data: valores,
+                borderWidth: 4,
+                borderColor: 'rgba(77, 166, 253, 0.85)',
+                backgroundColor: 'transparente',
+                color: '#4a006c'
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                fontSize: 20,
+                text: 'Relatório do Quiz'
             },
-            options: {
-                title: {
-                    display: true,
-                    fontSize: 20,
-                    text: 'Relatório do Quiz'
-                },
-                labels: {
-                    fontStyle: 'bold'
-                },
+            labels: {
+                fontStyle: 'bold'
+            },
 
-            }
-        });
+        }
+    });
 
-    }
+
+
+    const endpoint = `/tentativa/buscarResultados/${idUsuario}`;
+    fetch(endpoint)
+        .then(res => res.json())
+        .then(res => {
+            console.log(res);
+
+            valores[0] = res.tentativa;
+            valores[1] = res.Acertos;
+            valores[2] = res.erros;
+
+            grafico1.update()
+        })
+        .catch(erro => {
+            console.log("ERRO: " + erro);
+
+        })
+
+
 </script>

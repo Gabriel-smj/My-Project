@@ -27,7 +27,7 @@ function registrarTentativa(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        tentativaModel.registrarTentativa(idTentativa, fkQuiz, fkUsuario, acertos, erros, pontuacao, totalQuestoes)
+        tentativaModel.registrarTentativa(fkQuiz, fkUsuario, acertos, erros, pontuacao, totalQuestoes)
             .then(
                 function (resultado) {
                     res.json(resultado);

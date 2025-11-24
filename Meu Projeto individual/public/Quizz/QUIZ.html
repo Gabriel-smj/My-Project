@@ -14,13 +14,13 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <script src="./js/sessao.js"></script>
+    <script src="../js/sessao.js"></script>
 
     <title>Frequency Culture</title>
 </head>
 
 
-<body onload="onloadEsconder()">
+<body onload="onloadEsconder(), validarSessao()">
 
     <nav class="menu-lateral">
         <!-- <img src="../assets/img/ChatGPT Image Nov 2, 2025, 10_54_48 PM.png" alt="logo"> -->
@@ -45,8 +45,8 @@
                 <li><a href="Dashboard.html"><i class="fa-solid fa-chart-simple"></i>RESULTADOS</a></li>
             </div>
 
-            <div class="box-lateral-logout">
-                <li><a href="../login.html">SAIR</a></li>
+            <div class="box-lateral-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
             </div>
 
         </ul>
@@ -186,7 +186,6 @@
     let certas = 0
     let erradas = 0
     let quantidadeDeQuestoes = listaDeQuestoes.length
-    let idTentativa = 0
     let fkQuiz = 0
     // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
@@ -367,7 +366,7 @@
         // for (let i = 0; i < cont ; i++) {
 
         //     fkQuiz++
-        //     idTentativa++
+        //  
         // }
 
         var resultado = {
