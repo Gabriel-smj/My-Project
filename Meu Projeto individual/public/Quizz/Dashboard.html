@@ -21,7 +21,6 @@
 
 <body onload="validarSessao()">
     <nav class="menu-lateral">
-        <!-- <img src="../assets/img/ChatGPT Image Nov 2, 2025, 10_54_48 PM.png" alt="logo"> -->
         <h1>FREQUENCY CULTURE</h1>
         <ul>
 
@@ -32,10 +31,6 @@
             <div class="box-lateral">
                 <li><a href="QUIZ.html"><i class="fa-solid fa-dice"></i>JOGAR</a></li>
             </div>
-
-            <!-- <div class="box-lateral">
-                <li><a href="Cruzadinha.html">Cruzadinha</a></li>
-            </div> -->
 
             <div class="box-lateral">
                 <li class="agora"><a href="Dashboard.html"><i class="fa-solid fa-chart-simple"></i>RESULTADOS</a></li>
@@ -55,6 +50,7 @@
             <section class="indicador-quiz">
 
                 <div class="indicador-kpi">
+                    
                     <div class="campo">
                         <h4>Questões certas</h4> <br>
                         <div id="div_quest_certas">***</div>
@@ -103,6 +99,7 @@
     var mensagem = [];
 
 
+
     let nomeUsuario = sessionStorage.NOME_USUARIO;
 
 
@@ -110,8 +107,6 @@
 
     // Trocar para valores dos Ids das Tentativas
     let labelsX = ['Acertos', 'Erros'];
-
-    console.log("valor do usuario: ", valores);
 
 
     var grafico1 = new Chart(ctx, {
@@ -122,43 +117,52 @@
                 label: tentativa,
                 data: valores,
                 borderWidth: 2,
-                borderColor: 'blue',
-                backgroundColor: 'blue',
+                borderColor: 'blueviolet',
+                backgroundColor: 'blueviolet',
                 color: '#4a006c'
             }]
         },
         options: {
-            title: {
-                display: true,
-                fontSize: 20,
-                text: 'Relatório do Quiz'
-            },
             labels: {
                 fontStyle: 'bold'
             },
+            plugins: {
+                title: {
+                    display: true,
+                    color: 'white',
+                    text: 'Relatório do Quiz',
+                    font: {
+                        weight: 600,
+                        size: 18
+                    }
+                },
+            },
 
-        }
+        },
     });
 
 
+
     const obterDados = () => {
+
+
+
 
         const endpoint = `/tentativa/buscarResultados/${idUsuario}`;
         fetch(endpoint)
             .then(res => res.json())
             .then(res => {
-                console.log('valores da rota:  ' ,res);
 
-                tentativa[0] = 'Tentativa: ' + res[0].idTentativa;
-                console.log(tentativa);
-                
-                valores[0] = res[0].qtdAcertos;
-                valores[1] = res[0].qtdErros;
-                 
-                mensagem[0] = `${res[0].qtdAcertos}`;
-                console.log('valores: ', valores);
-                
+                tentativa[0] = 'Tentativa: ' + res[res.length - 1].idTentativa;
+                valores[0] = res[res.length - 1].qtdAcertos;
+                valores[1] = res[res.length - 1].qtdErros;
+                mensagem[0] = res[res.length - 1].qtdAcertos;
+                mensagem[1] = res[res.length - 1].qtdErros;
+                mensagem[2] = res[res.length - 1].idTentativa;
 
+                div_quest_certas.innerHTML = mensagem[0];
+                div_quest_erradas.innerHTML = mensagem[1];
+                div_tentativas.innerHTML = mensagem[2];
 
                 grafico1.update()
             })
@@ -167,8 +171,6 @@
 
             })
 
-            div_quest_certas.innerHTML = mensagem;
-            console.log(mensagem)
 
     }
 

@@ -293,7 +293,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, var(--preto), var(--azulEscuro));
+    background: linear-gradient(to bottom, var(--preto), var(--roxo));
 }
 
 #sobre .img-container {
@@ -345,7 +345,7 @@ body {
 
 #encontrar h2 {
     font-size: 40px;
-    color: var(--azulEscuro);
+    color: var(--roxo);
     margin-bottom: 30px;
 }
 
@@ -362,7 +362,7 @@ body {
     height: 250px;
     width: 200px;
     border-radius: 10px;
-    background: linear-gradient(to right bottom, var(--azulEscuro), var(--azulMarinho));
+    background: linear-gradient(to right bottom, var(--azulMarinho), var(--roxo));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -380,7 +380,7 @@ body {
 
 #encontrar .box-encontrar:hover {
     transition: .2s;
-    box-shadow: 0 0 25px var(--azulEscuro);
+    box-shadow: 0 0 25px var(--roxo3);
 }
 
 #encontrar .box-encontrar img {
@@ -388,7 +388,7 @@ body {
 }
 
 #encontrar .box-encontrar h4 {
-    color: var(--rosa);
+    color: var(--azulEscuro);
     margin: 15px 0;
 }
 
@@ -406,7 +406,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: var(--azulEscuro);
+    background: var(--roxo);
 }
 
 #contato .astronauta-container {
@@ -483,7 +483,7 @@ form button {
     color: var(--branco);
     font-weight: 600;
     margin: 10px;
-    background: linear-gradient(to bottom, var(--rosa), var(--roxo));
+    background: linear-gradient(to bottom, var(--azulMarinho), var(--preto));
 }
 
 /* ||||||||||||||||||||||||||||| footer |||||||||||||||||||||||||| */
@@ -491,7 +491,7 @@ form button {
 footer {
     height: 50px;
     width: 100%;
-    background: linear-gradient(to top right, var(--azulEscuro), var(--azulEscuro));
+    background: linear-gradient(to top right, var(--roxo), var(--roxoClaro));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -889,6 +889,7 @@ footer {
 .header-container h2 {
     margin: 0 0 0 250px;
     font-weight: 500;
+    color: var(--cinzaClaro);
 }
 
 .header-container .indicador-quiz {
@@ -915,13 +916,14 @@ footer {
     color: var(--brancoTipo2);
     border-radius: 10px;
     padding: 8px;
+   
 }
 
 .header-container .indicador-quiz .indicador-kpi .campo div {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90%;
+    height: 50%;
     width: 100%;
 }
 
@@ -936,7 +938,6 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 4px solid var(--roxoClaro);
 }
 
 .main-container .graph-container .graph-quiz {
@@ -950,7 +951,6 @@ footer {
 
 canvas {
     /* margin: 0 0 0 200px; */
-    box-shadow: 0 0 20px var(--roxoClaro2);
-    border: 1px solid grey;
-    background: var(--cinzaClaro);
+    box-shadow: 0 0 25px var(--roxoClaro2);
+    background: transparent;
 }
