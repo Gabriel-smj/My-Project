@@ -94,7 +94,6 @@
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     const idUsuario = sessionStorage.ID_USUARIO;
-    let nomeUsuario = sessionStorage.NOME_USUARIO;
 
     // function obterDadosGrafico(idAquario) {
 
@@ -247,10 +246,9 @@
 
 
     var valores = [];
-    // var tentativa = idTentativa[0];
-    // var Acertos = [];
-    // var erros = [];
+   
 
+    let nomeUsuario = sessionStorage.NOME_USUARIO;
 
 
     const ctx = document.getElementById('myChart');
@@ -287,7 +285,7 @@
     });
 
 
-    const obterDados=()=> {
+    const obterDados = () => {
 
         const endpoint = `/tentativa/buscarResultados/${idUsuario}`;
         fetch(endpoint)
@@ -295,9 +293,8 @@
             .then(res => {
                 console.log(res);
 
-                valores[0] = res.tentativa;
-                valores[1] = res.Acertos;
-                valores[2] = res.erros;
+                valores.push(res.idUsuario);
+                
 
                 grafico1.update()
             })
