@@ -57,15 +57,15 @@
                 <div class="indicador-kpi">
                     <div class="campo">
                         <h4>Questões certas</h4> <br>
-                        <div id="div_mensagem">***</div>
+                        <div id="div_quest_certas">***</div>
                     </div>
                     <div class="campo">
                         <h4>Questões erradas</h4> <br>
-                        <div id="div_mensagem">***</div>
+                        <div id="div_quest_erradas">***</div>
                     </div>
                     <div class="campo">
                         <h4>Tentativas</h4> <br>
-                        <div id="div_mensagem">***</div>
+                        <div id="div_tentativas">***</div>
                     </div>
                 </div>
 
@@ -95,179 +95,35 @@
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     const idUsuario = sessionStorage.ID_USUARIO;
 
-    // function obterDadosGrafico(idAquario) {
-
-    //     alterarTitulo(idAquario)
-
-    //     if (proximaAtualizacao != undefined) {
-    //         clearTimeout(proximaAtualizacao);
-    //     }
-
-    //     fetch(`/tentativa/buscarResultados/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
-    //         if (response.ok) {
-    //             response.json().then(function (resposta) {
-    //                 console.log(resposta);
-
-    //                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-    //                 resposta.reverse();
-
-    //                 plotarGrafico(resposta, idUsuario);
-
-    //             });
-    //         } else {
-    //             console.error('Nenhum dado encontrado ou erro na API');
-    //         }
-    //     })
-    //         .catch(function (error) {
-    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    //         });
-    // }
-
-    // function plotarGrafico(resposta, idUsuario) {
-
-    //     console.log('iniciando plotagem do gráfico...');
-
-    //     // Criando estrutura para plotar gráfico - labels
-    //     let labels = [];
-
-    //     // Criando estrutura para plotar gráfico - dados
-    //     let dados = {
-    //         labels: labels,
-    //         datasets: [{
-    //             label: 'qtdAcertos',
-    //             data: [],
-    //             fill: false,
-    //             borderColor: 'rgb(75, 192, 192)',
-    //             tension: 0.1
-    //         },
-    //         {
-    //             label: 'qtdErros',
-    //             data: [],
-    //             fill: false,
-    //             borderColor: 'rgb(199, 52, 52)',
-    //             tension: 0.1
-    //         }]
-    //     };
-
-    //     console.log('----------------------------------------------')
-    //     console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-    //     console.log(resposta)
-
-    //     // Inserindo valores recebidos em estrutura para plotar o gráfico
-    //     for (i = 0; i < resposta.length; i++) {
-    //         var registro = resposta[i];
-    //         labels.push(registro.idTentativa);
-    //         dados.datasets[0].data.push(registro.qtdAcertos);
-    //         dados.datasets[1].data.push(registro.qtdErros);
-    //     }
-
-    //     console.log('----------------------------------------------')
-    //     console.log('O gráfico será plotado com os respectivos valores:')
-    //     console.log('Labels:')
-    //     console.log(labels)
-    //     console.log('Dados:')
-    //     console.log(dados.datasets)
-    //     console.log('----------------------------------------------')
-
-    //     // Criando estrutura para plotar gráfico - config
-    //     const config = {
-    //         type: 'line',
-    //         data: dados,
-    //     };
-
-    //     // Adicionando gráfico criado em div na tela
-    //     let myChart = new Chart(
-    //         document.getElementById(`myChart, ${idUsuario}`),
-    //         config
-    //     );
-
-    //     setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
-    // }
-
-    // function atualizarGrafico(idUsuario, dados, myChart) {
-
-
-
-    //     fetch(`/tentativa/buscarResultados/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
-    //         if (response.ok) {
-    //             response.json().then(function (novoRegistro) {
-    //                 console.log(resposta);
-    //                 obterdados(idUsuario);
-    //                 // alertar(novoRegistro, idAquario);
-    //                 console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-    //                 console.log(`Dados atuais do gráfico:`);
-    //                 console.log(dados);
-
-    //                 let avisoCaptura = document.getElementById(`avisoCaptura${idUsuario}`)
-    //                 avisoCaptura.innerHTML = ""
-
-
-    //                 if (novoRegistro[0].idTentativa == dados.labels[dados.labels.length - 1]) {
-    //                     console.log("---------------------------------------------------------------")
-    //                     console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-    //                     avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
-    //                     console.log("Horário do novo dado capturado:")
-    //                     console.log(novoRegistro[0].idTentativa)
-    //                     console.log("Horário do último dado capturado:")
-    //                     console.log(dados.labels[dados.labels.length - 1])
-    //                     console.log("---------------------------------------------------------------")
-    //                 } else {
-    //                     // tirando e colocando valores no gráfico
-    //                     dados.labels.shift(); // apagar o primeiro
-    //                     dados.labels.push(novoRegistro[0].idTentativa); // incluir um novo momento
-
-    //                     dados.datasets[0].data.shift();  // apagar o primeiro de qtdAcertos
-    //                     dados.datasets[0].data.push(novoRegistro[0].qtdAcertos); // incluir uma nova medida de qtdAcertos
-
-    //                     dados.datasets[1].data.shift();  // apagar o primeiro de qtdErros
-    //                     dados.datasets[1].data.push(novoRegistro[0].qtdErros); // incluir uma nova medida de qtdErros
-
-    //                     myChart.update();
-    //                 }
-
-    //                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-    //                 proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
-    //             });
-    //         } else {
-    //             console.error('Nenhum dado encontrado ou erro na API');
-    //             // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-    //             proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
-    //         }
-    //     })
-    //         .catch(function (error) {
-    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    //         });
-
-    // }
-
-
-
-
-
 
     var valores = [];
-   
+
+    var tentativa = [];
+
+    var mensagem = [];
+
 
     let nomeUsuario = sessionStorage.NOME_USUARIO;
 
 
     const ctx = document.getElementById('myChart');
 
-    let labelsX = ['Tentativa', 'Acertos', 'Erros'];
+    // Trocar para valores dos Ids das Tentativas
+    let labelsX = ['Acertos', 'Erros'];
 
     console.log("valor do usuario: ", valores);
 
 
     var grafico1 = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: labelsX,
             datasets: [{
-                label: nomeUsuario,
+                label: tentativa,
                 data: valores,
-                borderWidth: 4,
-                borderColor: 'rgba(77, 166, 253, 0.85)',
-                backgroundColor: 'transparente',
+                borderWidth: 2,
+                borderColor: 'blue',
+                backgroundColor: 'blue',
                 color: '#4a006c'
             }]
         },
@@ -291,10 +147,18 @@
         fetch(endpoint)
             .then(res => res.json())
             .then(res => {
-                console.log(res);
+                console.log('valores da rota:  ' ,res);
 
-                valores.push(res.idUsuario);
+                tentativa[0] = 'Tentativa: ' + res[0].idTentativa;
+                console.log(tentativa);
                 
+                valores[0] = res[0].qtdAcertos;
+                valores[1] = res[0].qtdErros;
+                 
+                mensagem[0] = `${res[0].qtdAcertos}`;
+                console.log('valores: ', valores);
+                
+
 
                 grafico1.update()
             })
@@ -302,8 +166,12 @@
                 console.log("ERRO: " + erro)
 
             })
+
+            div_quest_certas.innerHTML = mensagem;
+            console.log(mensagem)
+
     }
 
-    let intervalo = setInterval(obterDados, 5000);
+    let intervalo = setTimeout(obterDados, 1000);
 
 </script>
