@@ -18,6 +18,7 @@ body {
     --roxo: #4a006c;
     --roxo2: #b04bff22;
     --roxo3: #9b2fff33;
+    --roxo4: #B04BFF;
     --preto: #000000;
     --branco: #ffffff;
     --roxoClaro: #9905FB;
@@ -42,8 +43,8 @@ body {
 .menu-lateral .agora {
     font-weight: 700;
     background: #B04BFF33;
-    color: #B04BFF;
-    border-left: 3px solid #B04BFF;
+    color: var(--roxoClaro2);
+    border-left: 3px solid var(--roxoClaro2);
     box-shadow: 0 0 15px #B04BFF55;
     border-radius: 10px;
 }
@@ -51,7 +52,9 @@ body {
 /*||||||||||||||||||||||||||||| MENU |||||||||||||||||||||||||||||||*/
 
 .menu {
-    background: linear-gradient(to right bottom, var(--azulMarinho), var(--roxo));
+    background: linear-gradient(to right bottom, var(--roxo2), var(--roxo));
+    /* border-bottom: 2px solid #B04BFF; */
+    box-shadow: 0 0 25px #B04BFF55;
     width: 100%;
     height: 60px;
     display: flex;
@@ -60,9 +63,15 @@ body {
     position: fixed;
 }
 
-.menu img {
+.menu h2 {
     height: 100%;
-    width: 100px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--roxoClaro2);
+    text-shadow: 0 0 10px #B04BFF88;
+  
 }
 
 .menu ul {
@@ -81,7 +90,7 @@ body {
     color: var(--branco);
 }
 
-/* |||||||||||||||||||| Quiz |||||||||||||||||| */
+/* |||||||||||||||||||| MENU LATERAL - QUIZ |||||||||||||||||| */
 
 .menu-lateral {
     background: var(--preto);
@@ -100,12 +109,7 @@ body {
 
 .menu-lateral h1 {
     text-align: center;
-    /* color: var(--cinzaClaro); */
-    /* border-bottom: 4px solid var(--preto); */
-    /* text-shadow: 5px 5px 6px rgba(132, 13, 159, 0.9); */
     color: #B04BFF;
-    /* font-size: 22px; */
-    /* margin-bottom: 30px; */
     text-shadow: 0 0 10px #B04BFF88;
     letter-spacing: 1.5px;
 
@@ -214,15 +218,19 @@ body {
     border-color: #7A1AFF44;
 }
 
-.box-lateral-logout li {
+.box-lateral-logout h4 {
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.box-lateral-logout li a:hover {
+.box-lateral-logout h4:hover {
     background: #7A1AFF22;
     color: #FFB2FF;
     box-shadow: 0 0 10px #7A1AFF44;
+    font-weight: 800;
 }
 
 /* ||||||||||| INDEX |||||||||||||||||||*/
@@ -917,7 +925,7 @@ footer {
     color: var(--brancoTipo2);
     border-radius: 10px;
     padding: 8px;
-   
+
 }
 
 .header-container .indicador-quiz .indicador-kpi .campo div {

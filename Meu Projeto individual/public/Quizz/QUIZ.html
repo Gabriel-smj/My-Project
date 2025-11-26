@@ -33,9 +33,6 @@
             <div class="box-lateral">
                 <li class="agora"><a href="#"><i class="fa-solid fa-dice"></i>JOGAR</a></li>
             </div>
-            <!-- <div class="box-lateral">
-                <li class="agora"><img src="../assets/img/controle-branco.svg" alt=""><a href="#">JOGAR</a></li>
-            </div> -->
 
             <!-- <div class="box-lateral">
                 <li><a href="Cruzadinha.html">CRUZADINHA</a></li>
@@ -46,7 +43,7 @@
             </div>
 
             <div class="box-lateral-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
+                <h4>SAIR</h4>
             </div>
 
         </ul>
@@ -376,6 +373,10 @@
                 if (resposta.ok) {
 
                     alert('Tentativa foi feita com sucesso')
+
+                    setTimeout(() => {
+                        window.location = "Dashboard.html";
+                    }, "1000");
 
                 } else {
                     throw "Houve um erro ao tentar realizar o registro do quiz!";
