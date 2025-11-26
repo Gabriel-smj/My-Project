@@ -79,7 +79,7 @@
         var senhaVar = input_senha.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
+            cardErro.style.opacity = 1;
             mensagem_erro.innerHTML = "<p>Campos em brancos e/ou incorretos</p>";
             finalizarAguardar();
             return false;
@@ -116,7 +116,7 @@
                     div_aguardar.style.opacity = 1;
                     
                     setTimeout(function () {
-                        cardErro.style.display = "block"
+                        // cardErro.style.display = "block"
                         window.location = "Quizz/QUIZ.html";
 
                     }, 5000); // apenas para exibir o loading

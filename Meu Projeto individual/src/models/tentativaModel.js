@@ -15,7 +15,7 @@ function registrarTentativa(fkQuiz, fkUsuario, acertos, erros, pontuacao, totalQ
 
 function buscarResultadosPorUsuario(idUsuario) {
     var instrucaoSql = `
-        SELECT idTentativa, qtdAcertos, qtdErros
+        SELECT qtdAcertos, qtdErros, qtdQuestoes
         FROM tentativa
         WHERE fkUsuario = ${idUsuario};
     `;
