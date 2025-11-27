@@ -396,7 +396,7 @@ body {
 }
 
 #encontrar .box-encontrar h4 {
-    color: var(--azulEscuro);
+    color: var(--brancoTipo2);
     margin: 15px 0;
 }
 
@@ -409,15 +409,15 @@ body {
 /* ||||||||||||||||||||||||||| Contato ||||||||||||||||||||||||||||| */
 
 #contato {
-    height: 100vh;
+    height: 70vh;
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: var(--roxo);
+    background: linear-gradient(to top, var(--preto), var(--roxo));
 }
 
-#contato .astronauta-container {
+#contato .contato-container {
     width: 50%;
     display: flex;
     justify-content: center;
@@ -425,12 +425,12 @@ body {
     flex-direction: column;
 }
 
-#contato .astronauta-container img:nth-of-type(1) {
+#contato .contato-container img:nth-of-type(1) {
     width: 80%;
     max-width: 400px;
 }
 
-#contato .astronauta-container img:nth-of-type(2) {
+#contato .contato-container img:nth-of-type(2) {
     width: 60%;
     max-width: 300px;
 }
@@ -490,8 +490,9 @@ form button {
     border: none;
     color: var(--branco);
     font-weight: 600;
+    font-size: 17px;
     margin: 10px;
-    background: linear-gradient(to bottom, var(--azulMarinho), var(--preto));
+    background: linear-gradient(to bottom, var(--roxo), var(--roxoClaro));
 }
 
 /* ||||||||||||||||||||||||||||| footer |||||||||||||||||||||||||| */
@@ -499,7 +500,7 @@ form button {
 footer {
     height: 50px;
     width: 100%;
-    background: linear-gradient(to top right, var(--roxo), var(--roxoClaro));
+    background: var(--roxo);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -541,7 +542,7 @@ footer {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: linear-gradient(to right bottom, var(--preto), var(--azulEscuro));
+    background: linear-gradient(to bottom, var(--preto) 20%, var(--roxo));
     color: var(--branco);
 }
 
@@ -617,7 +618,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
+   
 }
 
 .card_erro {
@@ -627,8 +628,8 @@ footer {
     height: 10px;
     text-align: center;
     opacity: 0;
-    /* border: 2px solid var(--preto);
-    border-radius: 10px; */
+    border: 2px solid var(--preto);
+    border-radius: 10px;
 }
 
 .loading-div {
@@ -639,8 +640,8 @@ footer {
 }
 
 .loading-div {
-    height: 70px;
-    width: 300px;
+    height: 80px;
+    width: 400px;
 }
 
 /* |||||||||||||||||||||||||||| LOGIN ||||||||||||||||||||||| */
@@ -653,7 +654,7 @@ footer {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: linear-gradient(to right bottom, var(--preto), var(--azulEscuro));
+    background: linear-gradient(to bottom, var(--preto) 30%, var(--roxo));
     color: var(--branco);
 }
 

@@ -23,7 +23,7 @@
          <h2>FREQUENCY CULTURE</h2> 
         <ul>
             <li><a href="index.html">HOME</a></li>
-            <li><a href="bio.html">BIOGRAFIA</a></li>
+            <li><a href="bio.html">SOBRE MIM</a></li>
             <li><a href="cadastro.html">CADASTRO</a></li>
             <li class="agora"><a href="#">LOGIN</a></li>
         </ul>
@@ -63,7 +63,6 @@
             <img src="assets/img/ChatGPT Image Nov 14, 2025, 01_20_07 AM.png" alt="">
         </div>
     </section>
-
     <footer>
         <p>Frequecy Culture &copy; Todos os direitos reservados</p>
     </footer>
@@ -86,7 +85,7 @@
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
+            setInterval(sumirMensagem, 1000)
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -116,11 +115,11 @@
 
                     div_aguardar.style.opacity = 1;
                     
-                    setTimeout(function () {
-                        // cardErro.style.display = "block"
-                        window.location = "Quizz/QUIZ.html";
+                    // setTimeout(function () {
+                    //     cardErro.style.display = "block"
+                    //     window.location = "Quizz/QUIZ.html";
 
-                    }, 5000); // apenas para exibir o loading
+                    // }, 5000); // apenas para exibir o loading
 
                 });
 

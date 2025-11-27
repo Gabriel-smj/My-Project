@@ -19,10 +19,10 @@
 
   <nav class="menu">
     <!-- <img src="assets/img/ChatGPT Image Nov 5, 2025, 02_36_17 PM.png" alt="logo"> -->
-     <h2>FREQUENCY CULTURE</h2> 
+    <h2>FREQUENCY CULTURE</h2>
     <ul>
       <li><a href="index.html">HOME</a></li>
-      <li><a href="bio.html">BIOGRAFIA</a></li>
+      <li><a href="bio.html">SOBRE MIM</a></li>
       <li class="agora"><a href="#">CADASTRO</a></li>
       <li><a href="login.html">LOGIN</a></li>
     </ul>
@@ -76,7 +76,7 @@
     </div>
     </div>
   </section>
-
+  
   <footer>
     <p>Frequecy Culture &copy; Todos os direitos reservados</p>
   </footer>
@@ -139,22 +139,22 @@
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
-        div_aguardar.style.opacity = 1;
+        // div_aguardar.style.opacity = 1;
         if (resposta.ok) {
-          
-          div_aguardar.style.opacity = 1;
-          mensagem_erro.innerHTML =
-          "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
           div_aguardar.style.opacity = 1;
-          
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          // div_aguardar.style.opacity = 1;
+
           setTimeout(() => {
             div_aguardar.style.opacity = 1;
             window.location = "login.html";
           }, "2000");
 
-          limparFormulario();
-          finalizarAguardar();
+          
+
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
