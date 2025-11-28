@@ -169,7 +169,7 @@ body {
     color: #B04BFF;
     border-color: #B04BFF44;
     box-shadow: 0 0 12px #B04BFF55;
-    border-radius: 10PX;
+    border-radius: 10px;
 
 }
 
@@ -189,11 +189,6 @@ body {
     align-items: center;
 }
 
-/* .menu-lateral ul .box-lateral img {
-    height: 30px;
-    width: 20px;
-    display: flex;
-} */
 .menu-lateral ul .box-lateral li i {
     height: 100%;
     width: 18%;
@@ -213,24 +208,29 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-    color: #FF7BFF;
-    background: #150015;
+    color: var(--rosa);
+    background: transparent;
     border-color: #7A1AFF44;
 }
 
-.box-lateral-logout h4 {
+.box-lateral-logout span {
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: 500;
 }
 
-.box-lateral-logout h4:hover {
-    background: #7A1AFF22;
-    color: #FFB2FF;
-    box-shadow: 0 0 10px #7A1AFF44;
+.box-lateral-logout span:hover {
     font-weight: 800;
+    cursor: pointer;
+    background: var(--roxo2);
+    /* color: #B04BFF; */
+    border-color: var(--roxo4);
+    box-shadow: 0 0 12px var(--roxo);
+    border-radius: 10px;
+    transition: 0.3s;
 }
 
 /* ||||||||||| INDEX |||||||||||||||||||*/
@@ -822,6 +822,7 @@ footer {
     align-items: center;
     font-size: 18px;
     font-weight: 500;
+    
 }
 
 #pontuacaoEJogo .quiz-jogo {
@@ -835,6 +836,8 @@ footer {
     margin: 0 0 50px 200px;
     color: var(--branco);
     font-size: 16px;
+    border: 2px solid var(--roxoClaro);
+    background-color: rgb(138, 43, 226, 0.1);
 }
 
 .quest-quiz-pergunta {
@@ -849,6 +852,18 @@ footer {
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
+    
+}
+
+.quest-quiz-options span {
+    border: 2px solid var(--roxoClaro);
+    width: 80%;
+    height: 30px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 10px;
+    
 }
 
 .quest-quiz-button {
@@ -865,8 +880,8 @@ footer {
     width: 315px;
     margin: 10px 0;
     font-weight: 600;
-    background: transparent;
-    color: #b04bff;
+    background: var(--roxo4);
+    color: var(--cinzaClaro);
     border: 2px solid #b04bff;
     padding: 12px 28px;
     font-family: 'Poppins', sans-serif;
@@ -901,7 +916,6 @@ footer {
     width: 100%;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     flex-direction: column;
 
 }
@@ -951,7 +965,6 @@ footer {
     height: 60%;
     width: 100%;
     display: flex;
-    /* flex-direction: row; */
 }
 
 .main-container .graph-container {
@@ -973,7 +986,6 @@ footer {
 }
 
 canvas {
-    /* margin: 0 0 0 200px; */
     border: 2px solid var(--roxo);
     box-shadow: 0 0 10px var(--roxoClaro2);
     background: transparent;
