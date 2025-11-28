@@ -279,6 +279,27 @@ body {
     font-size: 16px;
     color: var(--branco);
     margin-top: 40px;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 var(--cinzaClaro);
+}
+
+#home .texto-container button:hover {
+    box-shadow: 1px 1px 0 var(--cinzaClaro);
+    transform: translate(2px, 2px);
+    background: var(--roxo2);
+    transition: 0.2s;
+}
+
+#home .texto-container button a {
+    text-decoration: none;
+    color: var(--branco);
+}
+
+#home .texto-container button a:hover {
+    font-weight: 600;
+
+
+
 }
 
 #home .img-container {
@@ -292,6 +313,7 @@ body {
 #home .img-container img {
     width: 80%;
 }
+
 
 /* |||||||||||||||||||||||| SOBRE |||||||||||||||||||||||*/
 
@@ -410,6 +432,36 @@ body {
     color: var(--branco);
     font-size: 16px;
 }
+
+/* ||||||||||||||||||||||||||| HISTÓRIA ||||||||||||||||||||||||||||| */
+
+#historia {
+    height: 1500vh;
+    width: 100%;
+    background: linear-gradient(to top, var(--preto) 40%, var(--roxo));
+    color: var(--branco);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#historia .historia-container {
+    height: 100%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+#historia .historia-containe img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
 
 /* ||||||||||||||||||||||||||| Contato ||||||||||||||||||||||||||||| */
 
@@ -569,6 +621,7 @@ footer {
     box-shadow: 0 0 20px var(--roxoClaro);
     margin: 60px 0 0 0;
 }
+
 #cadastro .cadastro-container h2 {
     margin: 30px 0 30px 0;
 }
@@ -579,8 +632,9 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
+
 #cadastro .cadastro-container .box-cadastro .campo {
     height: 100%;
     width: 50%;
@@ -588,8 +642,8 @@ footer {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    
-    
+
+
 }
 
 #cadastro .cadastro-container .box-cadastro .campo button {
@@ -631,18 +685,20 @@ footer {
 }
 
 .alerta_erro .card_erro {
-    
+
     width: 100%;
     height: 40px;
     text-align: center;
     opacity: 0;
 }
+
 .alerta_erro .card_erro #mensagem_erro {
     height: 100%;
     width: 100%;
     font-size: 16px;
     font-weight: 800;
 }
+
 .loading-div {
     height: 80px;
     width: 400px;
@@ -822,7 +878,7 @@ footer {
     align-items: center;
     font-size: 18px;
     font-weight: 500;
-    
+
 }
 
 #pontuacaoEJogo .quiz-jogo {
@@ -852,7 +908,7 @@ footer {
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
-    
+
 }
 
 .quest-quiz-options span {
@@ -863,7 +919,7 @@ footer {
     display: flex;
     align-items: center;
     padding: 0 0 0 10px;
-    
+
 }
 
 .quest-quiz-button {
@@ -982,7 +1038,7 @@ footer {
     align-items: center;
     justify-content: center;
     margin: 0 0 0 270px;
-    
+
 }
 
 canvas {
@@ -998,9 +1054,9 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; 
+    flex-direction: column;
     color: var(--branco);
-    
+
 }
 
 .ranking-container #div_ranking {
@@ -1018,7 +1074,8 @@ canvas {
 .ranking-container #div_ranking::-webkit-scrollbar {
     width: 5px;
 }
-.ranking-container #div_ranking::-webkit-scrollbar-track{
+
+.ranking-container #div_ranking::-webkit-scrollbar-track {
     background-color: var(--roxo);
 }
 
