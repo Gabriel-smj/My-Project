@@ -76,7 +76,7 @@ body {
 
 .menu ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 600px;
 }
 
@@ -564,31 +564,6 @@ footer {
     color: var(--branco);
 }
 
-/* |||||||||||||||||||||||||||| BIOGRAFIA ||||||||||||||||||||||| */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* |||||||||||||||||||||||||||| CADASTRO ||||||||||||||||||||||| */
 
 #cadastro {
@@ -976,11 +951,6 @@ footer {
 
 }
 
-.header-container h2 {
-    margin: 0 0 0 250px;
-    font-weight: 500;
-    color: var(--cinzaClaro);
-}
 
 .header-container .indicador-quiz {
     height: 70%;
@@ -1006,6 +976,7 @@ footer {
     color: var(--brancoTipo2);
     border-radius: 10px;
     padding: 8px;
+    text-align: center;
 
 }
 
@@ -1015,6 +986,8 @@ footer {
     align-items: center;
     height: 50%;
     width: 100%;
+    font-size: 28px;
+    font-weight: 500;
 }
 
 .main-container {

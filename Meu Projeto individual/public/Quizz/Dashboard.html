@@ -45,26 +45,24 @@
     <div class="fundo">
         <header class="header-container">
 
-            <h2>Dashboard</h2>
-
             <section class="indicador-quiz">
 
                 <div class="indicador-kpi">
 
                     <div class="campo">
-                        <h4>Questões certas</h4> <br>
+                        <h3>Questões certas</h3> <br>
                         <div id="div_quest_certas">***</div>
                     </div>
                     <div class="campo">
-                        <h4>Questões erradas</h4> <br>
+                        <h3>Questões erradas</h3> <br>
                         <div id="div_quest_erradas">***</div>
                     </div>
                     <div class="campo">
-                        <h4>Total de Questões</h4> <br>
+                        <h3>Total de Questões</h3> <br>
                         <div id="div_qtd_Questoes">***</div>
                     </div>
                     <div class="campo">
-                        <h4>Percentual</h4> <br>
+                        <h3>Percentual</h3> <br>
                         <div id="div_percentual">***</div>
                     </div>
                 </div>
@@ -139,7 +137,7 @@
                 title: {
                     display: true,
                     color: 'white',
-                    text: 'Ultimos resultados',
+                    text: 'Últimos resultados',
                     font: {
                         weight: 600,
                         size: 18
@@ -186,7 +184,7 @@
 
                 }
 
-                for (let j = 0; j < rankingAcerto.length; j++) {
+                for (let j = rankingAcerto.length - 1; j >= 0 ; j--) {
                     
                     mensagem += `<b>Tentativa ${j+1} </b><br>
                        Questões certas: ${rankingAcerto[j]} <br> Questões erradas: ${rankingErros[j]} <br><br>`;
