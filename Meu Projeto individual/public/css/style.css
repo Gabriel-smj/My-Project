@@ -558,8 +558,8 @@ footer {
 }
 
 #cadastro .cadastro-container {
-    height: 80%;
-    width: 50%;
+    height: 70%;
+    width: 40%;
     background: linear-gradient(to bottom, var(--roxoClaro), var(--roxo));
     display: flex;
     justify-content: center;
