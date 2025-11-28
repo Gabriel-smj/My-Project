@@ -29,54 +29,69 @@
   </nav>
   <section id="cadastro">
 
-
-
     <div class="cadastro-container">
+
+      <h2>CADASTRE-SE</h2>
+
       <div class="box-cadastro">
-        <h2>CADASTRE-SE</h2>
-        <label>
-          <span>Nome:</span> <br>
-          <input type="text" id="input_nome" placeholder="  Digite seu nome...">
-        </label>
-        <label>
-          <span>Sobrenome:</span> <br>
-          <input type="text" id="input_sobrenome" placeholder="  Digite seu sobrenome...">
-        </label>
-        <label>
-          <span>E-mail:</span> <br>
-          <input type="text" id="input_email" placeholder="  Digite seu email...">
-        </label>
-        <label>
-          <span>Senha:</span> <br>
-          <input type="text" id="input_senha" placeholder="  Digite uma senha...">
-        </label>
-        <label>
-          <span>Confirme a Senha:</span> <br>
-          <input type="text" id="input_confirmacao_senha" placeholder="  Confirme sua senha...">
-        </label>
 
-        <button class="botao" onclick="cadastrar()">Cadastrar</button>
+        <div class="campo">
 
-        <div id="div_aguardar" class="loading-div">
-          <img src="./assets/img/soundwave-23744_256.gif" id="loading-gif">
+          <label>
+            <span>Nome:</span> <br>
+            <input type="text" id="input_nome" placeholder="  Digite seu nome...">
+          </label>
+
+          <label>
+            <span>Sobrenome:</span> <br>
+            <input type="text" id="input_sobrenome" placeholder="  Digite seu sobrenome...">
+          </label>
+
+          <label>
+            <span>E-mail:</span> <br>
+            <input type="text" id="input_email" placeholder="  Digite seu email...">
+          </label>
+
         </div>
 
-        <div id="div_erros_login"></div>
+        <div class="campo">
+          <label>
+            <span>Senha:</span> <br>
+            <input type="text" id="input_senha" placeholder="  Digite uma senha...">
+          </label>
 
-        <div class="alerta_erro">
-          <div class="card_erro" id="cardErro">
-            <span id="mensagem_erro"></span>
-          </div>
+          <label>
+            <span>Confirme a Senha:</span> <br>
+            <input type="text" id="input_confirmacao_senha" placeholder="  Confirme sua senha...">
+          </label>
+
+          <button class="botao" onclick="cadastrar()">Cadastrar</button>
+
         </div>
 
-        <p>Já tem cadastro, clique em <a href="login.html">Entrar</a></p>
       </div>
-      <img src="assets/img/ChatGPT Image Nov 14, 2025, 01_20_07 AM.png" alt="">
+
+      <div id="div_aguardar" class="loading-div">
+        <img width="400" height="80" src="./assets/img/soundwave-23744_256.gif" id="loading-gif">
+      </div>
+
+
+      <div class="alerta_erro">
+
+        <div class="card_erro" id="cardErro">
+
+          <span id="mensagem_erro"></span>
+
+        </div>
+
+      </div>
+
+      <p>Já tem cadastro, clique em <a href="login.html">Entrar</a></p>
 
     </div>
     </div>
   </section>
-  
+
   <footer>
     <p>Frequecy Culture &copy; Todos os direitos reservados</p>
   </footer>
@@ -112,9 +127,9 @@
 
       mensagem_erro.innerHTML =
         "Campos em branco e/ou incorretos";
-
-
+   
       return false;
+
     } else {
 
       setInterval(sumirMensagem, 2000)
@@ -139,21 +154,19 @@
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
-        // div_aguardar.style.opacity = 1;
         if (resposta.ok) {
 
-          div_aguardar.style.opacity = 1;
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          cardErro.style.opacity = 1;
 
-          // div_aguardar.style.opacity = 1;
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! <br> Redirecionando para tela de Login...";
+
+          div_aguardar.style.opacity = 1;
 
           setTimeout(() => {
-            div_aguardar.style.opacity = 1;
-            window.location = "login.html";
-          }, "2000");
 
-          
+            window.location = "login.html";
+          }, "3000");
 
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
@@ -161,7 +174,6 @@
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
       });
     return false;
   }
@@ -169,7 +181,7 @@
 
 
   function sumirMensagem() {
-    cardErro.style.display = "none"
+    cardErro.style.opacity = 0;
   }
 
 </script>

@@ -25,7 +25,7 @@
         <ul>
 
             <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                <h3>Olá, <span id="b_usuario">usuário</span> !</h3>
             </div>
 
             <div class="box-lateral">
@@ -50,7 +50,7 @@
             <section class="indicador-quiz">
 
                 <div class="indicador-kpi">
-                    
+
                     <div class="campo">
                         <h4>Questões certas</h4> <br>
                         <div id="div_quest_certas">***</div>
@@ -62,6 +62,10 @@
                     <div class="campo">
                         <h4>Total de Questões</h4> <br>
                         <div id="div_qtd_Questoes">***</div>
+                    </div>
+                    <div class="campo">
+                        <h4>Percentual</h4> <br>
+                        <div id="div_percentual">***</div>
                     </div>
                 </div>
 
@@ -75,6 +79,10 @@
                     <canvas id="myChart"></canvas>
                 </div>
 
+            </section>
+            <section class="ranking-container">
+                <h3>Histórico resultados</h3>   
+                <div id="div_ranking"></div>
             </section>
 
         </main>
@@ -94,11 +102,12 @@
 
     var valores = [];
 
-    var tentativa = [];
+    var tentativa = '';
 
-    var mensagem = [];
+    var msgKpis = [];
 
-
+    var rankingAcerto = [];
+    var rankingErros = [];
 
     let nomeUsuario = sessionStorage.NOME_USUARIO;
 
@@ -130,7 +139,7 @@
                 title: {
                     display: true,
                     color: 'white',
-                    text: 'Relatório do Quiz',
+                    text: 'Ultimos resultados',
                     font: {
                         weight: 600,
                         size: 18
@@ -145,7 +154,8 @@
 
     const obterDados = () => {
 
-
+        var mensagem = '';
+        var percentual = 0;
 
 
         const endpoint = `/tentativa/buscarResultados/${idUsuario}`;
@@ -153,16 +163,38 @@
             .then(res => res.json())
             .then(res => {
 
-                
+
                 valores[0] = res[res.length - 1].qtdAcertos;
                 valores[1] = res[res.length - 1].qtdErros;
-                mensagem[0] = res[res.length - 1].qtdAcertos;
-                mensagem[1] = res[res.length - 1].qtdErros;
-                mensagem[2] = res[res.length - 1].qtdQuestoes;
+                msgKpis[0] = res[res.length - 1].qtdAcertos;
+                msgKpis[1] = res[res.length - 1].qtdErros;
+                msgKpis[2] = res[res.length - 1].qtdQuestoes;
 
-                div_quest_certas.innerHTML = mensagem[0];
-                div_quest_erradas.innerHTML = mensagem[1];
-                div_qtd_Questoes.innerHTML = mensagem[2];
+                div_quest_certas.innerHTML = msgKpis[0];
+                div_quest_erradas.innerHTML = msgKpis[1];
+                div_qtd_Questoes.innerHTML = msgKpis[2];
+
+                percentual = `${((msgKpis[0] / msgKpis[2]) * 100).toFixed()}%` ;
+
+                tentativa = res.length;
+
+                for (var i = 0; i < tentativa; i++) {
+                    console.log(i);
+
+                    rankingAcerto[i] = res[i].qtdAcertos;
+                    rankingErros[i] = res[i].qtdErros;
+
+                }
+
+                for (let j = 0; j < rankingAcerto.length; j++) {
+                    
+                    mensagem += `<b>Tentativa ${j+1} </b><br>
+                       Questões certas: ${rankingAcerto[j]} <br> Questões erradas: ${rankingErros[j]} <br><br>`;
+                }
+
+
+                div_ranking.innerHTML = mensagem;
+                div_percentual.innerHTML = percentual;
 
                 grafico1.update()
             })
